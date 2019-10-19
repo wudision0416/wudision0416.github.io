@@ -36,7 +36,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # 在新标签中打开链接
 filename_case: 0 #把文件名称转换为 (1) 小写或 (2) 大写
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: false # 启用文章资源文件夹
 relative_link: false
 future: true
 ## 关闭 hexo 自带的代码高亮，启用 hexo-prism-plugin 插件，为 matery 主题配置

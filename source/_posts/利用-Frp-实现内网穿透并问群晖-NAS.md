@@ -345,5 +345,5 @@ $ chmod +x /usr/syno/etc.defaults/rc.sysv/S99frp.sh
   [2]: https://github.com/fatedier/frp/releases
   [3]: https://github.com/fatedier/frp/blob/master/README_zh.md
   [4]: https://www.synology.com/zh-cn/knowledgebase/DSM/tutorial/General/What_network_ports_are_used_by_Synology_services
-  [5]: https://assets.chafanzhai.com/usr/uploads/2018/06/2732919655.jpg
-  [6]: https://assets.chafanzhai.com/usr/uploads/2018/06/2075144557.jpg
+  [5]: https://chafanzhai-com.oss-cn-shanghai.aliyuncs.com/img/2732919655.jpg
+  [6]: https://chafanzhai-com.oss-cn-shanghai.aliyuncs.com/img/2075144557.jpg
