@@ -91,3 +91,9 @@ $ npm install hexo-deployer-git
 1. 使用`npm update -g`更新全局依赖包。
 2. 使用`npm update --save`更新生产环境依赖包。
 3. 使用`npm install --save`安装生产环境依赖包。
+
+## 升级hexo-theme-matery主题
+`hexo-theme-matery` 主题在此工程中使用`git clone`拉取，所以更新时仅需在主题目录下`./theme/hexo-theme-matery`执行以下命令：
+```
+git pull
+```
