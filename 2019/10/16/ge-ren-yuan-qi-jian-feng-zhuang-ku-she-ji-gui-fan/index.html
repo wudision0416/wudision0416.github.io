@@ -1,0 +1,2560 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="个人元器件封装库设计规范, 编程,电子,嵌入式,PCB,EDA,单片机,前端,PHP,3D打印机,ThingsBoard,物联网,VUE,laravel">
+    <meta name="description" content="
+说明：在参考网络资料后，编辑修改供个人开发生产所用;适用平台：Altium Designer;版本：A/0;修订记录：
+
+版本号：A/0；变更：新建
+
+
+
+一、库文件管理1.目的本文档规定设计中需要注意的一些事项，目的是使设计规范化，并通">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>个人元器件封装库设计规范 | 茶饭斋</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="茶饭斋" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">茶饭斋</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">茶饭斋</div>
+        <div class="logo-desc">
+            
+            个人博客，用于记录、沉淀与分享成长中的知识与故事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+<li class="m-nav-item">
+			
+				<a href="/" class="waves-effect waves-light">
+					
+					<i class="fa-fw fas fa-home"></i>
+					
+					首页
+				</a>
+          
+        </li>
+        
+<li class="m-nav-item">
+			
+				<a href="/tags" class="waves-effect waves-light">
+					
+					<i class="fa-fw fas fa-tags"></i>
+					
+					标签
+				</a>
+          
+        </li>
+        
+<li class="m-nav-item">
+			
+				<a href="/categories" class="waves-effect waves-light">
+					
+					<i class="fa-fw fas fa-bookmark"></i>
+					
+					分类
+				</a>
+          
+        </li>
+        
+<li class="m-nav-item">
+			
+				<a href="/archives" class="waves-effect waves-light">
+					
+					<i class="fa-fw fas fa-archive"></i>
+					
+					归档
+				</a>
+          
+        </li>
+        
+<li class="m-nav-item">
+			
+				<a href="/about" class="waves-effect waves-light">
+					
+					<i class="fa-fw fas fa-user-circle"></i>
+					
+					关于
+				</a>
+          
+        </li>
+        
+<li class="m-nav-item">
+			
+				<a href="/friends" class="waves-effect waves-light">
+					
+					<i class="fa-fw fas fa-address-book"></i>
+					
+					友情链接
+				</a>
+          
+        </li>
+        
+<li class="m-nav-item">
+			
+				<a href="/contact" class="waves-effect waves-light">
+					
+					<i class="fa-fw fas fa-comments"></i>
+					
+					Contact
+				</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/wudision0416" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/wudision0416" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        个人元器件封装库设计规范
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Altium-Designer/">
+                                <span class="chip bg-color">Altium Designer</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/">
+                                <span class="chip bg-color">设计规范</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%89%8B%E6%AE%B5%E6%96%B9%E6%B3%95/" class="post-category">
+                                手段方法
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-10-16
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><strong>说明：</strong>在参考网络资料后，编辑修改供个人开发生产所用;<br><strong>适用平台：</strong>Altium Designer;<br><strong>版本：</strong>A/0;<br><strong>修订记录：</strong></p>
+<ol>
+<li>版本号：A/0；变更：新建</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="一、库文件管理"><a href="#一、库文件管理" class="headerlink" title="一、库文件管理"></a>一、库文件管理</h2><h3 id="1-目的"><a href="#1-目的" class="headerlink" title="1.目的"></a>1.目的</h3><p>本文档规定设计中需要注意的一些事项，目的是使设计规范化，并通过将经验固化为规范的方式，为个人项目开发提供完整、规范、统一的电子元器件图形符号和封装库，从而实现节省设计时间，缩短产品研发周期，降低设计差错率，提高电路设计水平的目的。</p>
+<h3 id="2-库管理方式"><a href="#2-库管理方式" class="headerlink" title="2.库管理方式"></a>2.库管理方式</h3><ol>
+<li>框架结构：分为原理图元件库和 PCB 元件库两个库,每个库做为一个单独的设计项目。</li>
+<li>库分为标准库和临时库。标准库为已经批量使用的元件库，进行定期更新。临时库为实验中新元件临时存放库，采用实时更新。</li>
+<li>所有库文件放于网盘指定位置，便于同步修改及使用。</li>
+<li>对于首次使用器件，先按规范创建加入临时库中，生产验证后再归类到标准库。</li>
+</ol>
+<h2 id="二、原理图元件建库规范"><a href="#二、原理图元件建库规范" class="headerlink" title="二、原理图元件建库规范"></a>二、原理图元件建库规范</h2><h3 id="1-原理图元件库分类及命名"><a href="#1-原理图元件库分类及命名" class="headerlink" title="1.原理图元件库分类及命名"></a>1.原理图元件库分类及命名</h3><p>依据元器件种类分类(一律采用大写字母)：</p>
+<h4 id="1-1-RCL-LIB-电阻电容电感库"><a href="#1-1-RCL-LIB-电阻电容电感库" class="headerlink" title="1.1 RCL.LIB(电阻电容电感库)"></a>1.1 RCL.LIB(电阻电容电感库)</h4><table>
+<thead>
+<tr>
+<th>元件种类</th>
+<th>简称</th>
+<th>命名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>普通电阻类：包括 SMD 、碳膜、金膜、氧化膜、绕线、水泥、玻璃釉等</td>
+<td>R</td>
+<td>R</td>
+</tr>
+<tr>
+<td>康铜丝类：包括各种规格康铜丝电阻</td>
+<td>RK</td>
+<td>RK</td>
+</tr>
+<tr>
+<td>排阻：包括独立引脚和公共引脚。A：独立引脚，B:公用一端</td>
+<td>RA</td>
+<td>简称+引脚数+内部电路类型</td>
+</tr>
+<tr>
+<td>热敏电阻类：包括各种规格热敏电阻</td>
+<td>RT</td>
+<td>RT</td>
+</tr>
+<tr>
+<td>压敏电阻类：包括各种规格压敏电阻</td>
+<td>RZ</td>
+<td>RZ</td>
+</tr>
+<tr>
+<td>光敏电阻：包括各种规格光敏电阻</td>
+<td>RL</td>
+<td>RL</td>
+</tr>
+<tr>
+<td>可调电阻类：包括各种规格单路可调电阻</td>
+<td>RV</td>
+<td>简称-电阻数</td>
+</tr>
+<tr>
+<td>无极性电容类：包括各种规格无极性电容</td>
+<td>C</td>
+<td>CAP</td>
+</tr>
+<tr>
+<td>有极性电容类：包括各种规格有极性电容</td>
+<td>C</td>
+<td>CAE</td>
+</tr>
+<tr>
+<td>电感类</td>
+<td>L</td>
+<td>简称+电感数</td>
+</tr>
+<tr>
+<td>变压器类</td>
+<td>T</td>
+<td>简称-型号</td>
+</tr>
+</tbody></table>
+<h4 id="1-2-DQ-LIB-二极管、晶体管库"><a href="#1-2-DQ-LIB-二极管、晶体管库" class="headerlink" title="1.2 DQ.LIB(二极管、晶体管库)"></a>1.2 DQ.LIB(二极管、晶体管库)</h4><table>
+<thead>
+<tr>
+<th>元件种类</th>
+<th>简称</th>
+<th>命名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>普通二极管类</td>
+<td>D</td>
+<td>D</td>
+</tr>
+<tr>
+<td>稳压二极管类</td>
+<td>DW</td>
+<td>DW</td>
+</tr>
+<tr>
+<td>双向触发二极管类</td>
+<td>D</td>
+<td>简称+型号</td>
+</tr>
+<tr>
+<td>双二极管类：包括<code>BAV99</code></td>
+<td>Q</td>
+<td>D2</td>
+</tr>
+<tr>
+<td>桥式整流器类</td>
+<td>BG</td>
+<td>BG</td>
+</tr>
+<tr>
+<td>三极管类</td>
+<td>Q</td>
+<td>简称-类型</td>
+</tr>
+<tr>
+<td>MOS 管类</td>
+<td>Q</td>
+<td>简称-类型</td>
+</tr>
+<tr>
+<td>IGBT 类</td>
+<td>Q</td>
+<td>IGBT</td>
+</tr>
+<tr>
+<td>单向可控硅(晶闸管)类</td>
+<td>SCR</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>双向可控硅(晶闸管)</td>
+<td>BCR</td>
+<td>简称-型号</td>
+</tr>
+</tbody></table>
+<h4 id="1-3-IC-LIB-集成电路库"><a href="#1-3-IC-LIB-集成电路库" class="headerlink" title="1.3 IC.LIB(集成电路库)"></a>1.3 IC.LIB(集成电路库)</h4><table>
+<thead>
+<tr>
+<th>元件种类</th>
+<th>简称</th>
+<th>命名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>三端稳压 IC 类:包括 78 系列三端稳压 IC</td>
+<td>U</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>光电耦合器类</td>
+<td>U</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>IC</td>
+<td>U</td>
+<td>简称-型号</td>
+</tr>
+</tbody></table>
+<h4 id="1-4-CONN-LIB-接插件库"><a href="#1-4-CONN-LIB-接插件库" class="headerlink" title="1.4 CONN.LIB(接插件库)"></a>1.4 CONN.LIB(接插件库)</h4><table>
+<thead>
+<tr>
+<th>元件种类</th>
+<th>简称</th>
+<th>命名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>端子排座:包括导电插片、四脚端子等</td>
+<td>CON</td>
+<td>简称+PIN 数</td>
+</tr>
+<tr>
+<td>排线</td>
+<td>CN</td>
+<td>简称+PIN 数</td>
+</tr>
+<tr>
+<td>其他连接器</td>
+<td>CON</td>
+<td>简称-型号</td>
+</tr>
+</tbody></table>
+<h4 id="1-5-DISPLAY-LIB-光电器件库"><a href="#1-5-DISPLAY-LIB-光电器件库" class="headerlink" title="1.5 DISPLAY.LIB(光电器件库)"></a>1.5 DISPLAY.LIB(光电器件库)</h4><table>
+<thead>
+<tr>
+<th>元件种类</th>
+<th>简称</th>
+<th>命名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>发光二极管</td>
+<td>LED</td>
+<td>LED</td>
+</tr>
+<tr>
+<td>双发光二极管</td>
+<td>LED</td>
+<td>LED2</td>
+</tr>
+<tr>
+<td>数码管</td>
+<td>LED</td>
+<td>简称+位数-型号</td>
+</tr>
+<tr>
+<td>数码屏</td>
+<td>LED</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>背光板</td>
+<td>BL</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>LCD</td>
+<td>LCD</td>
+<td>简称-型号</td>
+</tr>
+</tbody></table>
+<h4 id="1-6-MARK-LIB-标示库"><a href="#1-6-MARK-LIB-标示库" class="headerlink" title="1.6 MARK.LIB(标示库)"></a>1.6 MARK.LIB(标示库)</h4><table>
+<thead>
+<tr>
+<th>元件种类</th>
+<th>简称</th>
+<th>命名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-5VDC电源</td>
+<td>-5V</td>
+<td>-5V</td>
+</tr>
+<tr>
+<td>-18VDC电源</td>
+<td>-18V</td>
+<td>-18V</td>
+</tr>
+<tr>
+<td>220VAC电源</td>
+<td>AC</td>
+<td>220VAC</td>
+</tr>
+<tr>
+<td>A点</td>
+<td>A</td>
+<td>A点</td>
+</tr>
+<tr>
+<td>B点</td>
+<td>B</td>
+<td>B点</td>
+</tr>
+<tr>
+<td>共地点</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>信号</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="1-7-OTHER-LIB-其他元器件库"><a href="#1-7-OTHER-LIB-其他元器件库" class="headerlink" title="1.7 OTHER.LIB(其他元器件库)"></a>1.7 OTHER.LIB(其他元器件库)</h4><table>
+<thead>
+<tr>
+<th>元件种类</th>
+<th>简称</th>
+<th>命名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>按键开关</td>
+<td>SW</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>触摸按键</td>
+<td>MO</td>
+<td>MO</td>
+</tr>
+<tr>
+<td>晶振</td>
+<td>Y</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>保险管</td>
+<td>F</td>
+<td>FUSE</td>
+</tr>
+<tr>
+<td>蜂鸣器</td>
+<td>BZ</td>
+<td>BUZ</td>
+</tr>
+<tr>
+<td>继电器</td>
+<td>K</td>
+<td>K</td>
+</tr>
+<tr>
+<td>电池</td>
+<td>BAT</td>
+<td>BAT</td>
+</tr>
+<tr>
+<td>模块</td>
+<td></td>
+<td>简称-型号</td>
+</tr>
+</tbody></table>
+<h3 id="2-原理图图形要求"><a href="#2-原理图图形要求" class="headerlink" title="2. 原理图图形要求"></a>2. 原理图图形要求</h3><ol>
+<li>只要元器件上有的管脚，图形库都应体现出来，不允许使用隐含管脚的方式(包括未使用的管脚)。</li>
+<li>电气管脚的长度为 5 的倍数。</li>
+<li>管脚号命名和 PCB 封装上的<code>Designator</code>一致对应。</li>
+<li>管脚名称<code>Name</code>缩写按规格书。</li>
+<li>对连接器、插针等有2列的接插件，管脚号的命名顺序要求按照管脚顺序号进行排列。</li>
+<li>对 IC 器件，做成矩形或方形。对于管脚的安排，可根据功能模块和管脚号的顺序综合考虑管脚的排列，原则输入放置在左边，输出放置在右边，电源放置在上边，地放置在下面。</li>
+<li>对电阻、电容、电感、二极管、发光二极管、三极管、保险丝、开关、电池等分立器件及小封装器件，图形使用常见的简易图形表示。</li>
+<li><code>Electrical Type</code>如果你不做仿真 无所谓类型是什么,一般不用改，默认即可。</li>
+</ol>
+<h3 id="3-原理图中元件值标注规则"><a href="#3-原理图中元件值标注规则" class="headerlink" title="3. 原理图中元件值标注规则"></a>3. 原理图中元件值标注规则</h3><p><strong>1.电阻：</strong></p>
+<ul>
+<li>电阻如只标数值，则代表其功率低于<code>1/4W</code>。如果其功率大于<code>1/4W</code>，则需要标明实际功率;</li>
+<li>缺省定义为<code>“精度±5%”</code>;</li>
+<li>为区别电阻种类可在其后标明: CF 碳膜、MF 金属膜、PF 氧化膜、FS 熔断、CE 瓷壳;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>阻值</th>
+<th>规则</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>≤1ohm</td>
+<td>以小数表示，而不以毫欧表示 <code>0RXX</code>，例如 <code>0R47</code>、<code>0R033</code></td>
+</tr>
+<tr>
+<td>≤999ohm</td>
+<td>整数表示为 <code>XXR</code>，例如<code>100R</code>、<code>470R</code></td>
+</tr>
+<tr>
+<td>≤999K</td>
+<td>整数表示为 <code>XXK</code>，例如<code>100K</code>、<code>470K</code></td>
+</tr>
+<tr>
+<td>≤999K 包含小数</td>
+<td>表示为<code>XKX</code>，例如<code>4K7</code>、<code>4K99</code>、<code>49K9</code></td>
+</tr>
+<tr>
+<td>≥1M</td>
+<td>整数表示为 <code>XXM</code>，例如<code>1M</code>、<code>10M</code></td>
+</tr>
+<tr>
+<td>≥1M 包含小数</td>
+<td>表示为<code>XMX</code>，例如<code>4M7</code>、<code>2M2</code></td>
+</tr>
+</tbody></table>
+<p><strong>2.电容：</strong>容值后标明耐压，以<code>“/”</code>与容值隔开。电解电容必须标明耐压，其他介质电容，如不标明耐压，则缺省定义为<code>“耐压50V”</code>。</p>
+<table>
+<thead>
+<tr>
+<th>容值</th>
+<th>规则</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>≤1pF</td>
+<td>以小数加 p 表示，例如<code>0p47</code></td>
+</tr>
+<tr>
+<td>≤100pF</td>
+<td>整数表示为 <code>XXp</code>，例如<code>100p</code>、<code>470p</code></td>
+</tr>
+<tr>
+<td>≥100pf</td>
+<td>采用指数标示，如: 1000PF 为<code>102</code></td>
+</tr>
+<tr>
+<td>≤999pF 包含小数</td>
+<td>表示为<code>XpX</code>，例如<code>4p7</code>、<code>6p8</code>；接近 1uF 的电容，可以以<code>0.XXu</code>表示，例如<code>0.1u</code>、<code>0.22u</code></td>
+</tr>
+<tr>
+<td>≥1uF</td>
+<td>整数表示为 <code>XXu F+“耐压”</code>，例如 <code>100uF/25V</code>、<code>470uF/16V</code></td>
+</tr>
+<tr>
+<td>≥1uF 包含小数</td>
+<td>表示为<code>X.X+“耐压</code>”，例如<code>2.2uF/400V</code></td>
+</tr>
+</tbody></table>
+<p><strong>3.电感：</strong>电感的电感量标法同电容容量标法。<br><strong>4.变压器：</strong>按实际型号<br><strong>5.二极管：</strong>按实际型号<br><strong>6.三极管：</strong>按实际型号<br><strong>7.集成电路：</strong>按实际型号<br><strong>8.接插件：</strong>标明脚数<br><strong>9.光电器件：</strong>按实际型号<br><strong>10.其他元件：</strong>按实际型号</p>
+<h2 id="三、PCB封装建库规范"><a href="#三、PCB封装建库规范" class="headerlink" title="三、PCB封装建库规范"></a>三、PCB封装建库规范</h2><h3 id="1-PCB封装库分类及命名"><a href="#1-PCB封装库分类及命名" class="headerlink" title="1. PCB封装库分类及命名"></a>1. PCB封装库分类及命名</h3><p>依据元器件工艺类(一律采用大写字母)：</p>
+<h4 id="1-1-SMD-LIB-贴片封装库"><a href="#1-1-SMD-LIB-贴片封装库" class="headerlink" title="1.1 SMD.LIB(贴片封装库)"></a>1.1 SMD.LIB(贴片封装库)</h4><table>
+<thead>
+<tr>
+<th>元件种类</th>
+<th>简称</th>
+<th>封装名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SMD 电阻</td>
+<td>R</td>
+<td>简称+元件英制代号</td>
+</tr>
+<tr>
+<td>SMD 排阻</td>
+<td>RA</td>
+<td>简称+电阻数-PIN距</td>
+</tr>
+<tr>
+<td>SMD 电容</td>
+<td>C</td>
+<td>简称+元件英制代号</td>
+</tr>
+<tr>
+<td>SMD 电解电容</td>
+<td>C</td>
+<td>简称+元件直径</td>
+</tr>
+<tr>
+<td>SMD 电感</td>
+<td>L</td>
+<td>简称+元件英制代号</td>
+</tr>
+<tr>
+<td>SMD 钽电容</td>
+<td>CT</td>
+<td>简称+元件英制代号</td>
+</tr>
+<tr>
+<td>柱状贴片</td>
+<td>M</td>
+<td>简称+元件英制代号</td>
+</tr>
+<tr>
+<td>SMD 二极管</td>
+<td>D</td>
+<td>简称+元件英制代号</td>
+</tr>
+<tr>
+<td>SMD 三极管</td>
+<td>Q</td>
+<td>常规为 SOT23 ;其他为<code>简称-型号</code></td>
+</tr>
+<tr>
+<td>SMD IC</td>
+<td>U</td>
+<td>1．封装+PIN数,如: <code>PLCC6</code>、<code>QFP8</code>、<code>SOP8</code>、<code>SSOP8</code>、<code>TSOP8</code>; 2．IC型号+封装+PIN数</td>
+</tr>
+<tr>
+<td>接插件</td>
+<td>CON</td>
+<td>简称+PIN数-PIN距</td>
+</tr>
+</tbody></table>
+<h4 id="1-2-AI-LIB-机插封装库"><a href="#1-2-AI-LIB-机插封装库" class="headerlink" title="1.2 AI.LIB(机插封装库)"></a>1.2 AI.LIB(机插封装库)</h4><table>
+<thead>
+<tr>
+<th>元件种类</th>
+<th>简称</th>
+<th>封装名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>电阻</td>
+<td>R</td>
+<td>简称+跨距(mm)</td>
+</tr>
+<tr>
+<td>瓷片电容</td>
+<td>C</td>
+<td>CAP+跨距(mm)-直径</td>
+</tr>
+<tr>
+<td>聚丙烯电容</td>
+<td>C</td>
+<td>简称+跨距(mm)-长X宽</td>
+</tr>
+<tr>
+<td>涤纶电容</td>
+<td>C</td>
+<td>简称+跨距(mm)-长X宽</td>
+</tr>
+<tr>
+<td>电解电容</td>
+<td>C</td>
+<td>简称+直径-跨距(mm);立式电容：简称+直径*高度-跨距(mm)+L</td>
+</tr>
+<tr>
+<td>二极管</td>
+<td>D</td>
+<td>简称+直径-跨距(mm)</td>
+</tr>
+<tr>
+<td>三极管类</td>
+<td>Q</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>MOS管类</td>
+<td>Q</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>三端稳压IC</td>
+<td>U</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>LED</td>
+<td>LED</td>
+<td>简称-直径+跨距(mm)</td>
+</tr>
+</tbody></table>
+<h4 id="1-2-DIP-LIB-手插封装库"><a href="#1-2-DIP-LIB-手插封装库" class="headerlink" title="1.2 DIP.LIB(手插封装库)"></a>1.2 DIP.LIB(手插封装库)</h4><table>
+<thead>
+<tr>
+<th>元件种类</th>
+<th>简称</th>
+<th>封装名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>立插电阻</td>
+<td>R</td>
+<td>RV+跨距(mm)-直径</td>
+</tr>
+<tr>
+<td>水泥电阻</td>
+<td>R</td>
+<td>RV+跨距(mm)-长X宽</td>
+</tr>
+<tr>
+<td>压敏压阻</td>
+<td>RZ</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>热敏电阻</td>
+<td>RT</td>
+<td>简称+跨距(mm)</td>
+</tr>
+<tr>
+<td>光敏电阻</td>
+<td>RL</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>可调电阻</td>
+<td>VR</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>排阻</td>
+<td>RA</td>
+<td>简称+电阻数-PIN距</td>
+</tr>
+<tr>
+<td>卧插电容</td>
+<td>C</td>
+<td>CW+跨距(mm)-直径X高</td>
+</tr>
+<tr>
+<td>盒状电容</td>
+<td>C</td>
+<td>简称+跨距(mm)-长X宽</td>
+</tr>
+<tr>
+<td>立式电解电容</td>
+<td>C</td>
+<td>简称+跨距(mm)-直径</td>
+</tr>
+<tr>
+<td>电感</td>
+<td>L</td>
+<td>简称+电感数-型号</td>
+</tr>
+<tr>
+<td>变压器</td>
+<td>T</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>桥式整流器</td>
+<td>BG</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>三极管</td>
+<td>Q</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>IGBT</td>
+<td>Q</td>
+<td>IGBT-序号</td>
+</tr>
+<tr>
+<td>MOS管</td>
+<td>Q</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>单向可控硅</td>
+<td>SCR</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>双向可控硅</td>
+<td>BCR</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>三端稳压IC</td>
+<td>U</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>光电耦合器类</td>
+<td>U</td>
+<td>简称+PIN数，如: PLCC6、QFP8、SOP8、SSOP8、TSOP8</td>
+</tr>
+<tr>
+<td>IC</td>
+<td>U</td>
+<td>如上</td>
+</tr>
+<tr>
+<td>排座</td>
+<td>CON</td>
+<td>1.PIN距为2.54mm:简称+PIN数; 2.PIN非为2.54mm:简称+PIN数-PIN距; 3.弯角-W、普通-L</td>
+</tr>
+<tr>
+<td>排线</td>
+<td>CN</td>
+<td>如上</td>
+</tr>
+<tr>
+<td>排针</td>
+<td>SIP</td>
+<td>如上</td>
+</tr>
+<tr>
+<td>其他连接器</td>
+<td>CON</td>
+<td>如上</td>
+</tr>
+<tr>
+<td>发光二极管</td>
+<td>LED</td>
+<td>简称+跨距(mm)-直径</td>
+</tr>
+<tr>
+<td>双发光二极管</td>
+<td>LED</td>
+<td>LED2+跨距(mm)-直径</td>
+</tr>
+<tr>
+<td>数码管</td>
+<td>LED</td>
+<td>LED+位数-尺寸</td>
+</tr>
+<tr>
+<td>数码屏</td>
+<td>LED</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>背光板</td>
+<td>BL</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>LCD</td>
+<td>LCD</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>按键开关</td>
+<td>SW</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>触摸按键</td>
+<td>MO</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>晶振</td>
+<td>Y</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>保险管</td>
+<td>F</td>
+<td>简称+跨距(mm)-长X直径</td>
+</tr>
+<tr>
+<td>蜂鸣器</td>
+<td>BUZ</td>
+<td>简称+跨距(mm)-直径</td>
+</tr>
+<tr>
+<td>继电器</td>
+<td>K</td>
+<td>简称-型号</td>
+</tr>
+<tr>
+<td>电池</td>
+<td>BAT</td>
+<td>简称-直径</td>
+</tr>
+<tr>
+<td>电池片</td>
+<td></td>
+<td>型号</td>
+</tr>
+<tr>
+<td>模块</td>
+<td>MK</td>
+<td>简称-型号</td>
+</tr>
+</tbody></table>
+<h4 id="1-3-MARK-LIB-标示库"><a href="#1-3-MARK-LIB-标示库" class="headerlink" title="1.3 MARK.LIB(标示库)"></a>1.3 MARK.LIB(标示库)</h4><table>
+<thead>
+<tr>
+<th>元件种类</th>
+<th>简称</th>
+<th>封装名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MARK点</td>
+<td>MARK</td>
+<td></td>
+</tr>
+<tr>
+<td>AI孔</td>
+<td>AI</td>
+<td></td>
+</tr>
+<tr>
+<td>螺丝孔</td>
+<td>M</td>
+<td></td>
+</tr>
+<tr>
+<td>测试点</td>
+<td>TP</td>
+<td></td>
+</tr>
+<tr>
+<td>过炉方向</td>
+<td>SOL</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="2-PCB封装图形要求"><a href="#2-PCB封装图形要求" class="headerlink" title="2. PCB封装图形要求"></a>2. PCB封装图形要求</h3><ol>
+<li>外形尺寸：指元件的最大外型尺寸。封装库的外形(尺寸和形状)必须和实际元件的封装外形一致。</li>
+<li>主体尺寸：指元件的塑封体的尺寸=宽度X长度。</li>
+<li>尺寸单位：英制单位为mil，公制单位为mm。</li>
+<li>封装的焊盘必须定义编号，一般使用数字来编号，和原理图对应。</li>
+<li>贴片元件的原点一般设定在元件图形的中心。</li>
+<li>插装元件原点一般设定在第一个焊盘中心。</li>
+<li>表面贴装元件的封装必须在元件面建立，不允许在焊接面建立镜像的封装。</li>
+<li>封装的外形建立在丝印层上。</li>
+</ol>
+<h2 id="四、PCB封装焊盘设计规范"><a href="#四、PCB封装焊盘设计规范" class="headerlink" title="四、PCB封装焊盘设计规范"></a>四、PCB封装焊盘设计规范</h2><h3 id="1-通用要求"><a href="#1-通用要求" class="headerlink" title="1. 通用要求"></a>1. 通用要求</h3><ol>
+<li>所有焊盘单边最小不小于0.25mm，整个焊盘直径最大不大于元件孔径的3倍。</li>
+<li>孔径超过1.2mm或焊盘直径超过3.0mm的焊盘应设计为星形或梅花焊盘。</li>
+<li>PCB 上尚无件封装库的器件，应根据器件资料建立新的元件封装库，并保证丝印库存与实物相符合，特别是新建立的电磁元件、自制结构件等的元件库是否与元件的资料(承认书、规格书、图纸)相符合。新器件应建立能够满足不同工艺(回流焊、波峰焊、通孔回流焊)要求的元件库。</li>
+</ol>
+<h3 id="2-AI元件的封装设计"><a href="#2-AI元件的封装设计" class="headerlink" title="2. AI元件的封装设计"></a>2. AI元件的封装设计</h3><ol>
+<li>单面AI板元件孔径=元件脚径+0.4mm。焊盘直径=2×孔径，焊盘间距不足0.7mm采用椭圆设计。</li>
+<li>卧插元件(包括跳线)插孔的中心距：跨距要求为6-18mm。</li>
+<li>卧插元件形体的限制：1W及以上电阻不进行AI。引线直径 ≥ 0.8mm不进行AI。</li>
+<li>立插元件插孔的中心距：跨距要求为2.5mm、5.0mm两种规格。</li>
+<li>立插元件形体的限制：最大高度可为16mm，最大直径为10mm。</li>
+<li>立式平贴PCB元件在本体下增加0.8mm透气孔。</li>
+<li>AI弯脚方向要有做丝印。</li>
+<li>常用AI元件的PCB封装数据。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>元件名称</th>
+<th>规格</th>
+<th>孔径(mm)</th>
+<th>焊盘(mm)</th>
+<th>跨距(mm)</th>
+<th>其他要求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>跳线Φ</td>
+<td>0.6</td>
+<td>1.00</td>
+<td>2.0*2.0</td>
+<td>10.00</td>
+<td></td>
+</tr>
+<tr>
+<td>电阻</td>
+<td>1/4W及以下</td>
+<td>1.00</td>
+<td>2.0*2.0</td>
+<td>10.00</td>
+<td></td>
+</tr>
+<tr>
+<td>电阻</td>
+<td>1/2W</td>
+<td>1.00</td>
+<td>2.2*2.2</td>
+<td>15.00</td>
+<td></td>
+</tr>
+<tr>
+<td>电解电容</td>
+<td>脚距2.54mm</td>
+<td>1.00</td>
+<td>1.7*2.2</td>
+<td>2.54</td>
+<td>加0.8走气孔</td>
+</tr>
+<tr>
+<td>电解电容</td>
+<td>脚距5.0mm</td>
+<td>1.00</td>
+<td>2.0*2.0</td>
+<td>5.00</td>
+<td>加0.8走气孔</td>
+</tr>
+<tr>
+<td>瓷片电容</td>
+<td>脚距5.0mm</td>
+<td>1.00</td>
+<td>2.0*2.0</td>
+<td>5.00</td>
+<td></td>
+</tr>
+<tr>
+<td>涤纶电容</td>
+<td>脚距5.0mm</td>
+<td>1.00</td>
+<td>2.0*2.0</td>
+<td>5.00</td>
+<td></td>
+</tr>
+<tr>
+<td>二极管</td>
+<td>4148</td>
+<td>1.00</td>
+<td>2.0*2.0</td>
+<td>10.00</td>
+<td></td>
+</tr>
+<tr>
+<td>二极管</td>
+<td>4007</td>
+<td>1.20</td>
+<td>2.4*2.4</td>
+<td>10.00</td>
+<td></td>
+</tr>
+<tr>
+<td>三极管</td>
+<td>脚距2.54mm</td>
+<td>1.00</td>
+<td>1.7*2.2</td>
+<td>2.54</td>
+<td></td>
+</tr>
+<tr>
+<td>LED</td>
+<td>脚距2.28mm</td>
+<td>1.00</td>
+<td>1.6*2.2</td>
+<td>2.28</td>
+<td>加0.8走气孔</td>
+</tr>
+</tbody></table>
+<h3 id="3-DIP元件的封装设计"><a href="#3-DIP元件的封装设计" class="headerlink" title="3. DIP元件的封装设计"></a>3. DIP元件的封装设计</h3><ol>
+<li>元件孔径=元件脚径+0.2mm。焊盘直径=2×孔径+0.2mm，焊盘间距不足0.7mm采用椭圆设计。</li>
+<li>焊盘≥3 *3mm要求做成梅花焊盘。梅花焊盘的要求：线宽0.7mm，露出焊盘0.5mm，角度30度，12条，外加线宽1.2mm阻焊。</li>
+<li>排插脚间距≤2.54mm的要求在元件脚间加阻焊和偷锡焊盘。</li>
+<li>所有接插件等受力器件或重量大的器件的焊盘引线2mm以内其包覆铜膜宽度要求尽可能增大并且不能有空焊盘设计，保证焊盘足够吃锡，插座受外力时不会轻易起铜皮。</li>
+<li>常用DIP元件的PCB封装数据。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>元件名称</th>
+<th>规格</th>
+<th>孔径(mm)</th>
+<th>焊盘(mm)</th>
+<th>跨距(mm)</th>
+<th>其他要求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1W电阻</td>
+<td></td>
+<td>1.00</td>
+<td>2.2*2.2</td>
+<td>15.00</td>
+<td></td>
+</tr>
+<tr>
+<td>Φ1.5康铜丝</td>
+<td></td>
+<td>1.80</td>
+<td>5.0*5.0</td>
+<td>25.00</td>
+<td>梅花焊盘</td>
+</tr>
+<tr>
+<td>压敏电阻</td>
+<td></td>
+<td>1.20</td>
+<td>2.4*2.4</td>
+<td>7.50</td>
+<td></td>
+</tr>
+<tr>
+<td>可调电位器</td>
+<td></td>
+<td>1.00</td>
+<td>2.0*2.5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2uF聚丙烯电容中型5uF和0.3uF</td>
+<td></td>
+<td>1.10</td>
+<td>4*4</td>
+<td>26.50</td>
+<td></td>
+</tr>
+<tr>
+<td>聚丙烯电容小型5uF和0.3uF</td>
+<td></td>
+<td>1.30</td>
+<td>4*4</td>
+<td>30.50</td>
+<td></td>
+</tr>
+<tr>
+<td>聚丙烯电容</td>
+<td></td>
+<td>1.30</td>
+<td>4*4</td>
+<td>26.50</td>
+<td></td>
+</tr>
+<tr>
+<td>Φ1.2mm扼流圈</td>
+<td></td>
+<td>1.50</td>
+<td>4*10</td>
+<td></td>
+<td>梅花焊盘加弯脚</td>
+</tr>
+<tr>
+<td>变压器EE10</td>
+<td></td>
+<td>1.00</td>
+<td>2.2*2.2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>整流桥堆</td>
+<td></td>
+<td>1.50</td>
+<td>3.5*4.5</td>
+<td></td>
+<td>梅花焊盘</td>
+</tr>
+<tr>
+<td>IGBT</td>
+<td></td>
+<td>1.50</td>
+<td>3.5*4.5</td>
+<td></td>
+<td>梅花焊盘</td>
+</tr>
+<tr>
+<td>IC(DIP8)</td>
+<td>脚距2.54</td>
+<td>1.00</td>
+<td>1.7*2.2</td>
+<td>2.54</td>
+<td>加拖锡焊盘、阻焊</td>
+</tr>
+<tr>
+<td>排线</td>
+<td>脚距2.54</td>
+<td>1.00</td>
+<td>1.7*2.2</td>
+<td>2.54</td>
+<td>加拖锡焊盘、阻焊</td>
+</tr>
+<tr>
+<td>2.54mm连接器</td>
+<td>脚距2.54</td>
+<td>1.00</td>
+<td>1.7*2.2</td>
+<td>2.54</td>
+<td>加拖锡焊盘、阻焊</td>
+</tr>
+<tr>
+<td>防倒导电插片</td>
+<td></td>
+<td>1.1*1.7方孔</td>
+<td>3.5*4.5</td>
+<td>5.00</td>
+<td>梅花焊盘</td>
+</tr>
+<tr>
+<td>四脚端子</td>
+<td></td>
+<td>1.2*1.7方孔</td>
+<td>3.5*4.5</td>
+<td></td>
+<td>梅花焊盘</td>
+</tr>
+<tr>
+<td>轻触开关    四脚</td>
+<td></td>
+<td>1.15</td>
+<td>2.0*2.5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>轻触开关    二脚</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>数码管</td>
+<td>脚距2.54</td>
+<td>0.80</td>
+<td>1.6*2.5</td>
+<td>2.54</td>
+<td>加拖锡焊盘、阻焊</td>
+</tr>
+<tr>
+<td>12.5A保险管</td>
+<td></td>
+<td>1.20</td>
+<td>3.5*3.5</td>
+<td>21.00</td>
+<td>梅花焊盘</td>
+</tr>
+<tr>
+<td>电磁式蜂鸣器</td>
+<td></td>
+<td>1.00</td>
+<td>2.0*2.0</td>
+<td>6.60</td>
+<td></td>
+</tr>
+<tr>
+<td>压电式蜂鸣器</td>
+<td></td>
+<td>1.00</td>
+<td>2.0*2.0</td>
+<td>7.50</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="4-SMT元件的封装设计"><a href="#4-SMT元件的封装设计" class="headerlink" title="4. SMT元件的封装设计"></a>4. SMT元件的封装设计</h3><ol>
+<li>为了统一SMT生产贴片时的元件贴装角度，保证各元件角度的一次正确性，在建立标准元件封装库时，其封装库的初始角度必须统一标准化。标准元件封装库的元件角度设计要求：</li>
+</ol>
+<p><img src="https://chafanzhai-com.oss-cn-shanghai.aliyuncs.com/img/1562066657.png" alt="角度.png"></p>
+<ol start="2">
+<li>常用阻容贴片的焊盘设计</li>
+</ol>
+<p><img src="https://chafanzhai-com.oss-cn-shanghai.aliyuncs.com/img/3009260744.png" alt="阻容贴片.png"></p>
+<p>常用阻容贴片的红胶工艺焊盘设计:</p>
+<table>
+<thead>
+<tr>
+<th>外形代号(in)</th>
+<th>0402</th>
+<th>0603</th>
+<th>0805</th>
+<th>1206</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>W：宽mm[mil]</td>
+<td>0.56[22]</td>
+<td>0.79[31]</td>
+<td>1.27[50]</td>
+<td>1.60[63]</td>
+</tr>
+<tr>
+<td>L：长mm[mil]</td>
+<td>0.89[35]</td>
+<td>1.25[50]</td>
+<td>1.70[67]</td>
+<td>1.32[52]</td>
+</tr>
+<tr>
+<td>T：距 mm[mil]</td>
+<td>0.40[16]</td>
+<td>0.60[24]</td>
+<td>0.86[32]</td>
+<td>1.80[72]</td>
+</tr>
+</tbody></table>
+<ol>
+<li>常用SOT23封装三极管的焊盘设计</li>
+</ol>
+<p><img src="https://chafanzhai-com.oss-cn-shanghai.aliyuncs.com/img/20186873.png" alt="三极管.png"></p>
+<ol>
+<li><p>圆柱状类(如二极管)的焊盘设计应尊循两端焊盘的中心距为元件的长度这一原则，焊盘的宽度和长度一般以同类型封装的片式阻容一致。</p>
+</li>
+<li><p>IC表面焊盘图形设计的一般原则 </p>
+<ul>
+<li>对SOP、QFP、PLCC、BGA存在着英制和公制两种规格，而且除了 PLCC 外，其他封装形式很不标准，各个厂家的封装尺寸不完全一致。设计时，应以供应商提供的封装结构尺寸来进行设计； </li>
+<li>焊盘中心等于引线中心距；</li>
+<li>焊盘宽度一般取引脚中心距的一半；</li>
+<li>焊盘与相邻印制线间隔不应小于 0.3mm。 </li>
+</ul>
+</li>
+</ol>
+<p><strong>SOT设计的一般原则</strong></p>
+<ul>
+<li>焊盘的中心距与引线的中心距相等；</li>
+<li>焊盘的图形与引线的焊接面相似，尺寸上一般是在长度方向上加长 1mm，在宽度方向上加宽0.4mm。</li>
+<li>用SOP封装IC的焊盘设计如果是红胶工艺必须加拖锡焊盘。</li>
+</ul>
+<p><img src="https://chafanzhai-com.oss-cn-shanghai.aliyuncs.com/img/20191019192907-2019-10-19-19-29-7.png" alt="sop.jpg"></p>
+<p><strong>PLCC设计的一般原则</strong></p>
+<p>元件与焊盘的形状以及式中字母的意义，如图所示</p>
+<ul>
+<li>焊盘中心距等于引线中心距；</li>
+<li>焊盘宽度等于引线中心距一半；</li>
+<li>A或B=Cmax+0.8mm；</li>
+<li>L=2.0mm～2.15mm。</li>
+</ul>
+<p><img src="https://chafanzhai-com.oss-cn-shanghai.aliyuncs.com/img/20191019193011-2019-10-19-19-30-11.png" alt="plcc.png"></p>
+<p><strong>QFP设计的一般原则</strong><br>元件与焊盘的形状以及式中字母的意义，如图所示</p>
+<ul>
+<li>焊盘中心距等于引线中心距；</li>
+<li>焊盘宽度等于引线中心距之半加0.05mm； </li>
+<li>A’(或B’)=A(或B)+1mm；</li>
+<li>L=1.5mm～1.6mm(适合于引线中心距为 0.5mm及其以下尺寸的 QFP)；</li>
+<li>L=1.8mm～2.0mm(适合于引线中心距为 0.8mm、0.65mm 尺寸的QFP)。</li>
+<li>用QFT封装IC的焊盘设计如果是红胶工艺必须加拖锡焊盘。</li>
+</ul>
+<p><img src="https://chafanzhai-com.oss-cn-shanghai.aliyuncs.com/img/20191019193054-2019-10-19-19-30-54.png" alt="qfp.png"></p>
+<h3 id="5-特殊元件的封装设计"><a href="#5-特殊元件的封装设计" class="headerlink" title="5. 特殊元件的封装设计"></a>5. 特殊元件的封装设计</h3><p>12.5A铜箔保险丝：<br><img src="https://chafanzhai-com.oss-cn-shanghai.aliyuncs.com/img/20191019193128-2019-10-19-19-31-28.png" alt="12.5cu.png"></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">农夫山泉有点甜！</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="wechat,weibo,qq,qzone,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">
+                    <img alt="知识共享许可协议"
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <a  href="/2019/10/16/ge-ren-yuan-qi-jian-feng-zhuang-ku-she-ji-gui-fan/">
+                《个人元器件封装库设计规范》
+            </a> 由
+            <a href="http://www.chafanzhai.com">
+                wudision0416
+            </a> 采用
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #42b983;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div id="vcomments" class="card-content"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://unpkg.com/valine@1.3.10/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'lQjYSVcjomKfDb3l7h9ab2L3-gzGzoHsz',
+        appKey: 'OjhFw68YnRT5kkl3lqhTgcvE',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/10/16/li-yong-frp-shi-xian-nei-wang-chuan-tou-bing-wen-qun-hui-nas/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="利用 Frp 实现内网穿透并问群晖 NAS">
+                        
+                        <span class="card-title">利用 Frp 实现内网穿透并问群晖 NAS</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            将内网的黑群晖暴露到外网
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8/" class="post-category">
+                                    技术应用
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/NAS/">
+                        <span class="chip bg-color">NAS</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BE%A4%E6%99%96/">
+                        <span class="chip bg-color">群晖</span>
+                    </a>
+                    
+                    <a href="/tags/frp/">
+                        <span class="chip bg-color">frp</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
+                        <span class="chip bg-color">内网穿透</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/10/16/altium-designer-zai-hui-zhi-pcblayout-shi-ge-ceng-de-yong-tu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Altium Designer 在绘制 PCBLayout 时各层的用途">
+                        
+                        <span class="card-title">Altium Designer 在绘制 PCBLayout 时各层的用途</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            在 PCB 设计时，各层的用途。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    理论学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/PCB/">
+                        <span class="chip bg-color">PCB</span>
+                    </a>
+                    
+                    <a href="/tags/Altium-Designer/">
+                        <span class="chip bg-color">Altium Designer</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="http://www.chafanzhai.com" target="_blank">wudision0416</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    window.setTimeout("siteTime()", 1000);
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "10";
+                    var startDate = "1";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wudision0416" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:416753558@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=416753558" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 416753558" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/2992794670" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/2992794670" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: "4d90f87a"
+        });
+        daovoice('update');
+    </script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+
+</body>
+
+</html>
