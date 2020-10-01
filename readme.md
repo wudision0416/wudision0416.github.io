@@ -97,3 +97,4 @@ $ npm install hexo-deployer-git
 ```
 git pull
 ```
+然后返回根目录。执行依赖包安装或更新

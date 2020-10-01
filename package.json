@@ -5,6 +5,19 @@
   "hexo": {
     "version": "5.2.0"
   },
+  "scripts": {
+    "start": "yuque-hexo clean && yuque-hexo sync && hexo clean && hexo generate",
+    "build": "hexo generate",
+    "clean": "hexo clean",
+    "clean:yuque": "yuque-hexo clean",
+    "deploy": "yuque-hexo sync && hexo deploy",
+    "server": "hexo server",
+    "publish": "npm run clean && npm run deploy",
+    "dev": "hexo s",
+    "sync": "yuque-hexo sync",
+    "reset": "npm run clean:yuque && npm run sync"
+  },
+
   "dependencies": {
     "hexo": "^5.2.0",
     "hexo-deployer-git": "^2.1.0",
@@ -21,6 +34,20 @@
     "hexo-renderer-marked": "^3.3.0",
     "hexo-renderer-stylus": "^2.0.1",
     "hexo-server": "^2.0.0",
-    "hexo-wordcount": "^6.0.1"
+    "hexo-wordcount": "^6.0.1",
+    "yuque-hexo": "^1.6.5"
+  },
+
+  "yuqueConfig": {
+    "postPath": "source/_posts/yuque",
+    "cachePath": "yuque.json",
+    "mdNameFormat": "title",
+    "adapter": "hexo",
+    "concurrency": 5,
+    "baseUrl": "https://www.yuque.com/api/v2",
+    "login": "wudision0416",
+    "repo": "blog",
+    "onlyPublished": false,
+    "onlyPublic": false
   }
 }

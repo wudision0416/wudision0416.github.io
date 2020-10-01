@@ -1,0 +1,48 @@
+# 工作流名称
+name: Blog CI/CD
+ 
+ # 触发条件，当有 push 到仓库和外部触发的时候就运行 
+on: [push, repository_dispatch]
+
+# 待执行惹怒我
+jobs:
+  deploy:
+    name: Deploy Hexo Public To Pages
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+    steps:
+    - name: Checkout codes
+      with:
+        ref: hexo
+      uses: actions/checkout@v2
+ 
+    - name: Setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: Cache node modules
+      uses: actions/cache@v1
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+ 
+    # 安装依赖并执行编译
+    - name: Install dependencies
+      env: 
+        YUQUE_TOKEN: ${{ secrets.YUQUE_TOKEN }}
+      run: |
+        npm install hexo-cli -g
+        npm install yuque-hexo -g
+        npm install
+        npm run start 
+
+    # from https://github.com/peaceiris/actions-gh-pages 
+    - name: Deploy 
+      uses: peaceiris/actions-gh-pages@v3 
+        with: 
+          deploy_key: ${{ secrets.PERSONAL_TOKEN }} 
+          external_repository: wudision0416/wudision0416.github.io 
+          publish_branch: master 
+          publish_dir: ./public 
+          commit_message: ${{ github.event.head_commit.message }}
