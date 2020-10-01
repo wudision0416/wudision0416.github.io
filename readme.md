@@ -67,3 +67,27 @@ $ npm install hexo-deployer-git
 ### 更新
 
 先执行`hexo g -d`，把要发布的内容`push`到`github`或`coding`上面了，再去弄备份。
+
+## Hexo 版本升级
+
+### 全局升级`hexo-cli`
+
+1. 先使用`hexo version`查看当前Hexo版本
+2. 使用命令`npm i hexo-cli -g`进行全局升级
+3. 完成后再次`hexo version`命令确认版本。
+
+### 检查依赖包可用更新
+
+1. 使用`npm install -g npm-check`安装依赖包信息检查工具(若存在可跳过)。
+2. `npm-check`检查依赖包信息。
+
+### 更新依赖包信息
+
+1. 使用`npm install -g npm-upgrade`安装依赖包的版本信息更新工具(若存在可跳过)。
+2. 使用`npm-upgrade`，升级系统中依赖包的版本信息。
+
+### 更新依赖包
+
+1. 使用`npm update -g`更新全局依赖包。
+2. 使用`npm update --save`更新生产环境依赖包。
+3. 使用`npm install --save`安装生产环境依赖包。
