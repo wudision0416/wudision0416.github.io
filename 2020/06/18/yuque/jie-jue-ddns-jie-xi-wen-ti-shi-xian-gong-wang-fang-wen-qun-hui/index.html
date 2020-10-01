@@ -4,12 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="我们为何要写作, 编程,电子,嵌入式,PCB,EDA,单片机,前端,PHP,3D打印机,ThingsBoard,物联网,VUE,laravel">
-    <meta name="description" content="
-转载来源：唐巧的博客原文：为码农，我们为什么要写作作者：唐巧转载时间：2019年10月19日
-
-
-在程序员这个行业，坚持做技术写作的人一直比较少。我和身边的朋友沟通后，发现他们除了借口没有时间外，大多没有意识到写作带来的收益。在他们看来，">
+    <meta name="keywords" content="解决DDNS解析问题，实现公网访问群晖, 编程,电子,嵌入式,PCB,EDA,单片机,前端,PHP,3D打印机,ThingsBoard,物联网,VUE,laravel">
+    <meta name="description" content="前言本文内容仅适用于群晖，若应用在其他地方，请自行修改。本文是基于阿里云的域名解析实现的，使用群晖的 计划任务&amp;nbsp;+ sh&amp;nbsp; 脚本来实现 DDNS 功能，理论上支持 IPV4&amp;nbsp; 和 IPV6&amp;nbsp;，因为个人">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>我们为何要写作 | 茶饭斋</title>
+    <title>解决DDNS解析问题，实现公网访问群晖 | 茶饭斋</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,13 +307,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        我们为何要写作
+                        解决DDNS解析问题，实现公网访问群晖
                     </div>
                 </div>
             </div>
@@ -427,29 +423,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E5%86%99%E4%BD%9C/">
-                                <span class="chip bg-color">写作</span>
-                            </a>
-                        
-                            <a href="/tags/%E9%B8%A1%E8%A1%80/">
-                                <span class="chip bg-color">鸡血</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="post-category">
-                                杂七杂八
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -457,7 +436,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-19
+                    2020-06-18
                 </div>
 
                 
@@ -473,30 +452,54 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>转载来源：<a target="_blank" rel="noopener" href="https://blog.devtang.com/">唐巧的博客</a><br>原文：<a target="_blank" rel="noopener" href="https://blog.devtang.com/2014/01/08/why-we-need-write/">为码农，我们为什么要写作</a><br>作者：唐巧<br>转载时间：2019年10月19日</p>
-</blockquote>
-<hr>
-<p>在程序员这个行业，坚持做技术写作的人一直比较少。我和身边的朋友沟通后，发现他们除了借口没有时间外，大多没有意识到写作带来的收益。在他们看来，将自己学到的知识简单记录下来就足够自己需要的时候回顾了。而技术写作通常需要花更多时间，因为需要将技术的细节以及来龙去脉讲清楚。</p>
-<p>不得不承认，这的确是一个事实，通常情况下，把一个知识讲清楚比理解它更难。那我们为什么要花时间写作呢？我想写作至少有以下好处。</p>
-<h2 id="提高自己对知识的掌握层次"><a href="#提高自己对知识的掌握层次" class="headerlink" title="提高自己对知识的掌握层次"></a>提高自己对知识的掌握层次</h2><p>美国教育心理学家 <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/%E6%9C%AC%E5%82%91%E6%98%8E%C2%B7%E5%B8%83%E9%AD%AF%E5%A7%86">Bloom</a> 将知识认知分为了两个维度，其中认知历程维度又分为 6 个层次，分别为：记忆、理解、应用、分析、评鉴、创造。如下图所示，层次越高，表示对知识的掌握程度越深。</p>
-<p><img src="https://blog.devtang.com/images/why-write-1.png"></p>
-<p>对于写作者来说，在写作过程中，因为需要对知识进行精确地表述，常常要对知识的细节再次的探索。在这个过程中，写作者可能会发现自己的观点不清晰的地方，通过二次学习，使自己的理解更加完善。写作者也可能会发现自己观点中的错误，从而改正自己的曲解。在经历过这段过程后，通常对于自己所写的知识的掌握程度，都上升了一个层次。</p>
-<p>我自己的每次技术写作都经历了这样的提高过程。所以，我更多时候是把写作当成学习的一种方式。这种学习方式比普通的学习方式更加深入，效果更好。当然，花费的时间也更多。</p>
-<h2 id="提高表达和沟通的能力"><a href="#提高表达和沟通的能力" class="headerlink" title="提高表达和沟通的能力"></a>提高表达和沟通的能力</h2><p>作为一个程序员，日常的工作大部分时间都是面对电脑。许多人周末也喜欢当一个技术宅，待在家里上网、看电影或者玩游戏来消遣。长时间的面对机器，使得我们的语言表达能力极度衰退。而写作是一个很好的机会，让我们练习自己的表达能力。</p>
-<p>长时间写作之后，你会更加注意平时沟通的语言。你的用词更加精准，表达更加生动。在表达能力提高的同时，你的沟通效率也得到提高。</p>
-<h2 id="接受读者的沟通和反馈"><a href="#接受读者的沟通和反馈" class="headerlink" title="接受读者的沟通和反馈"></a>接受读者的沟通和反馈</h2><p>当你的文章通过博客或者 <code>InfoQ</code> 网站发表出来后，你就会接着获得写作的第三个好处：来自读者的沟通和反馈。一篇好的文章通常会吸引一些读者回复，通过和读者的交流，你可以收获以下好处：</p>
-<ol>
-<li><p>错误内容反馈：尽管文章在写作时经历过二次学习，但是人难免会犯错。写作将你的思想完全暴露出来，有水平的读者可以指出你文章中的错误，从而使你对知识的理解更加准确。我的很多博客文章都有一些细微错误，通过读者的找反馈，我很快就将错误内容改正过来了，自己的水平也得到了提高。</p>
-</li>
-<li><p>认识朋友：一个乐于分享的人总会比沉默寡言的人更招人喜欢。所以通过写作，你可以结交很多和你一样，乐于分享的朋友。</p>
-</li>
-<li><p>了解更多相关信息：一些读者会回复说：” 某某框架也用了这个技术方案 “，或者是：” 你的这个实现方案没有另一个某某开源方案好 “。这些信息，作为你当前文章知识点的补充，使你能够了解更多相关的资料，再一次完善自己所学的知识。</p>
-</li>
-</ol>
-<h2 id="影响力"><a href="#影响力" class="headerlink" title="影响力"></a>影响力</h2><p>当你持续的写作，坚持一年以上，你就会慢慢收获影响力。这个时候，你也会收到技术大会的分享邀请，出版社的约稿邀请，著名互联网公司的工作邀请，甚至是创业项目的合伙人邀请。你相比那些不分享的人，获得了更多的机会。当然你的技术观点也会被更多人接受，你也会收获到传递知识的乐趣。</p>
-<p>#结束语</p>
-<p>在写作过程中，你将收获<code>提高自己对知识的掌握层次</code>和<code>提高表达和沟通的能力</code>的好处。<br>在写作结束后，你将收获<code>错误内容反馈</code>、<code>认识朋友</code>和<code>了解更多相关信息</code>的好处。<br>在坚持写作一段时间，你将收获<code>影响力</code>和<code>传递知识的乐趣</code>。<br>另外，<a target="_blank" rel="noopener" href="http://book.douban.com/subject/6709809/">《暗时间》</a> 的作者刘未鹏在 <a target="_blank" rel="noopener" href="http://blog.csdn.net/pongba/article/details/3896311">他的文章</a>，也总结了很多写作的好处，大家也可以看看。<br>看了写作的这么多好处，你是否心动？那赶快创建一个博客，开始你的技术写作之旅吧！</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文内容仅适用于群晖，若应用在其他地方，请自行修改。<br>本文是基于阿里云的域名解析实现的，使用群晖的 <strong>计划任务</strong>&nbsp;+ <code>sh</code>&nbsp; 脚本来实现 DDNS 功能，理论上支持 <code>IPV4</code>&nbsp; 和 <code>IPV6</code>&nbsp;，因为个人条件有限，未拥有公网的 <code>IPV4</code>&nbsp; 的地址，所以未针对 <code>IPV4</code>&nbsp; 进行测试。若有问题，也可以留言一起讨论。<br>目前网络上的基于 <code>sh</code> 脚本的方式实现 <code>DDNS</code> 的代码在我的环境中都已失效，怀疑是群晖版本问题。不想用 <code>docker</code>&nbsp; 或其他方式实现 DDNS 功能(嫌麻烦)，所以我用三脚猫的水平，基于<a target="_blank" rel="noopener" href="https://github.com/jwping/AliDDNS">jwping/AliDDNS</a>&nbsp; 的代码完成了我的目的。目前在我机器上正常工作。<br><img src="https://cdn.nlark.com/yuque/0/2020/png/87319/1592472673921-8f79581e-798d-495d-a7c1-86cc60638634.png#align=left&amp;display=inline&amp;height=300&amp;margin=%5Bobject%20Object%5D&amp;name=DDNS%E4%BF%AE%E6%94%B9%E8%AE%B0%E5%BD%95.png&amp;originHeight=590&amp;originWidth=820&amp;size=68833&amp;status=done&amp;style=none&amp;width=417" alt="DDNS修改记录.png"></p>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
+<li>硬件：七彩虹 <code>C.J3160M-K 全固态版 V21</code>&nbsp; 主板，板载了 intel 的 J3160 处理器</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/jpeg/87319/1592472562781-aafae61a-2bbb-4e32-ba5a-2039ce6a74fd.jpeg#align=left&amp;display=inline&amp;height=200&amp;margin=%5Bobject%20Object%5D&amp;name=C.J3160M-K%20%E5%85%A8%E5%9B%BA%E6%80%81%E7%89%88%20V21.jpg&amp;originHeight=800&amp;originWidth=800&amp;size=167589&amp;status=done&amp;style=none&amp;width=200" alt="C.J3160M-K 全固态版 V21.jpg"></p>
+<ul>
+<li>系统：黑群晖 <code>DSM 6.2.3</code>&nbsp; 版本</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/87319/1592472576763-8071aed8-62a7-415d-85fb-7467e42bc28a.png#align=left&amp;display=inline&amp;height=200&amp;margin=%5Bobject%20Object%5D&amp;name=%E9%BB%91%E7%BE%A4%E6%99%96%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E6%88%AA%E5%9B%BE.png&amp;originHeight=495&amp;originWidth=719&amp;size=21403&amp;status=done&amp;style=none&amp;width=291" alt="黑群晖系统信息截图.png"></p>
+<h2 id="代码配置"><a href="#代码配置" class="headerlink" title="代码配置"></a>代码配置</h2><p>完整代码请查看 GitHub：<a target="_blank" rel="noopener" href="https://github.com/wudision0416/aliddns4dsm">wudision0416/aliddns4dsm</a></p>
+<h3 id="1-修改基础配置"><a href="#1-修改基础配置" class="headerlink" title="1. 修改基础配置"></a>1. 修改基础配置</h3><p>修改脚本的<code>ipv4</code>或<code>ipv6</code>函数，其中 <code>DomainRecordId</code>&nbsp; 不清楚的话暂时不用修改，如:</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#Accesskey在开头Setting代码段中修改。</span>
+AccessKeyId<span class="token operator">=</span><span class="token string">"MyID"</span>
+AccessKeySec<span class="token operator">=</span><span class="token string">"MySecret"</span></code></pre>
+<p>此处的 DNS 解析服务器为万网，如无特殊需求可以不做修改。</p>
+<pre class=" language-bash"><code class="language-bash">DNSServer<span class="token operator">=</span><span class="token string">"dns9.hichina.com"</span></code></pre>
+<p>主要的参数都在在尾部<code>ipv4</code>或<code>ipv6</code>的函数调用中修改。<br><code>DomainRR</code>&nbsp; 为需要监控的二级域名；<br><code>DomainName</code>&nbsp; 为需要监控的域名；<br><code>DomainType</code>&nbsp; 是解析类型， <code>A</code>&nbsp; 是 IPV4 解析，而 <code>AAAA</code>&nbsp; 是 IPV6 解析，默认不用修改<br><code>dev</code>&nbsp; 是群晖目标网卡的名称，可以启用 SSH 功能后，登录使用 <code>ifconfig</code>&nbsp; 命令查看，要准确填写外网访问的网卡名称；<br><code>NslookupDrefix</code>&nbsp; 用于截取域名记录的 IP 地址时 <code>ipv4</code>&nbsp; 和 <code>ipv6</code>&nbsp; 的区分。在群晖中，不支持 <code>dig</code>&nbsp; 方式查询域名地址，所以我直接用了 <code>nslookup</code>&nbsp; 来查询域名解析地址，而 <code>NslookupDrefix</code>&nbsp; 就是结果的关键字前缀，如果有需要，可以参照实际修改。</p>
+<pre class=" language-bash"><code class="language-bash">DomainRecordId<span class="token operator">=</span><span class="token string">"00000"</span>
+DomainRR<span class="token operator">=</span><span class="token string">"www"</span>
+DomainName<span class="token operator">=</span><span class="token string">"example.com"</span>
+DomainType<span class="token operator">=</span><span class="token string">"A"</span>
+dev<span class="token operator">=</span><span class="token string">"ovs_eth0"</span>
+NslookupDrefix<span class="token operator">=</span><span class="token string">"Address: "</span></code></pre>
+<h3 id="2-查看-DomainRecordId"><a href="#2-查看-DomainRecordId" class="headerlink" title="2. 查看 DomainRecordId"></a>2. 查看 DomainRecordId</h3><p>如果不清楚 <code>DomainRecordId</code>&nbsp; 的话，修改 <code>ipv4</code>&nbsp; 或 <code>ipv6</code>&nbsp; 函数，在里面调用 <code>describe_record</code>&nbsp;，如：</p>
+<pre class=" language-bash"><code class="language-bash">ipv6<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+ describe_record
+ <span class="token comment" spellcheck="true">#update_record</span>
+    <span class="token punctuation">}</span></code></pre>
+<p>然后执行这个脚本。如果没问题的话，就能获取到域名的所有解析记录的列表了：</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span><span class="token property">"PageNumber"</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token property">"TotalCount"</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token property">"PageSize"</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token property">"RequestId"</span><span class="token operator">:</span><span class="token string">"0000"</span><span class="token punctuation">,</span><span class="token property">"DomainRecords"</span><span class="token operator">:</span>
+ <span class="token punctuation">{</span><span class="token property">"Record"</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token property">"RR"</span><span class="token operator">:</span><span class="token string">"www"</span><span class="token punctuation">,</span><span class="token property">"Status"</span><span class="token operator">:</span><span class="token string">"ENABLE"</span><span class="token punctuation">,</span><span class="token property">"Value"</span><span class="token operator">:</span><span class="token string">"8.8.8.8"</span><span class="token punctuation">,</span>
+ <span class="token property">"RecordId"</span><span class="token operator">:</span><span class="token string">"21332133"</span><span class="token punctuation">,</span><span class="token property">"Type"</span><span class="token operator">:</span><span class="token string">"A"</span><span class="token punctuation">,</span><span class="token property">"DomainName"</span><span class="token operator">:</span><span class="token string">"example.com"</span><span class="token punctuation">,</span>
+ <span class="token property">"Locked"</span><span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token property">"Line"</span><span class="token operator">:</span><span class="token string">"default"</span><span class="token punctuation">,</span><span class="token property">"TTL"</span><span class="token operator">:</span><span class="token string">"600"</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>HttpCode<span class="token operator">:</span><span class="token number">200</span></code></pre>
+<p>上面的结果中， <code>RecordId</code>&nbsp; 为 <strong>21332133</strong>&nbsp;。得到结果后再修改 <code>DomainRecordId</code>&nbsp; 为正确的值。</p>
+<h3 id="3-执行脚本"><a href="#3-执行脚本" class="headerlink" title="3. 执行脚本"></a>3. 执行脚本</h3><p>基础配置完成后，改回原入口函数：</p>
+<pre class=" language-bash"><code class="language-bash">ipv6<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+ <span class="token comment" spellcheck="true">#describe_record</span>
+ update_record
+    <span class="token punctuation">}</span></code></pre>
+<p>执行脚本即可，脚本会在本机 IP 地址和当前域名解析设置不同的时候调用 API 更新设置。</p>
+<h3 id="4-选择执行函数"><a href="#4-选择执行函数" class="headerlink" title="4. 选择执行函数"></a>4. 选择执行函数</h3><p>如下选择需要执行的函数，我因为没有 <code>IPV4</code>&nbsp;，所以只启用了 <code>IPV6</code></p>
+<pre class=" language-bash"><code class="language-bash">ipv6
+<span class="token comment" spellcheck="true">#ipv4</span></code></pre>
+<h3 id="5-其他"><a href="#5-其他" class="headerlink" title="5. 其他"></a>5. 其他</h3><p>有关于日志输出的一些参数配置，直接看脚本就可明了，如果需要查看日志，请在群晖设置计划任务是设置日志的输出路径，详细请参考网上其他教程即可。</p>
+<h2 id="设置计划任务"><a href="#设置计划任务" class="headerlink" title="设置计划任务"></a>设置计划任务</h2><p>这一步就是在群晖的控制面板上设置相应的计划任务，参考网上的即可，主要目的是以一定的频率执行上诉脚本任务，</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -675,8 +678,8 @@
                 </a>
             </div>
             <br/>
-            <a  href="/2019/10/19/wo-men-wei-he-yao-xie-zuo/">
-                《我们为何要写作》
+            <a  href="/2020/06/18/yuque/jie-jue-ddns-jie-xi-wen-ti-shi-xian-gong-wang-fang-wen-qun-hui/">
+                《解决DDNS解析问题，实现公网访问群晖》
             </a> 由
             <a href="http://www.chafanzhai.com">
                 wudision0416
@@ -979,24 +982,28 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/18/yuque/jie-jue-ddns-jie-xi-wen-ti-shi-xian-gong-wang-fang-wen-qun-hui/">
+                <a href="/2020/10/01/yuque/ce-shi-hexo-tong-bu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="解决DDNS解析问题，实现公网访问群晖">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="测试hexo同步">
                         
-                        <span class="card-title">解决DDNS解析问题，实现公网访问群晖</span>
+                        <span class="card-title">测试hexo同步</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言本文内容仅适用于群晖，若应用在其他地方，请自行修改。本文是基于阿里云的域名解析实现的，使用群晖的 计划任务&nbsp;+ sh&nbsp; 脚本来实现 DDNS 功能，理论上支持 IPV4&nbsp; 和 IPV6&nbsp;，因为个人
+                            测试 hexo 同步，仅作测试解决 dada dasd
+
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            i
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-18
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                         </span>
                         <span class="publish-author">
                             
@@ -1016,19 +1023,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/19/ru-he-gui-hua-bo-ke-de-biao-qian-he-fen-lei/">
+                <a href="/2019/10/19/wo-men-wei-he-yao-xie-zuo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="如何规划博客的标签和分类">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="我们为何要写作">
                         
-                        <span class="card-title">如何规划博客的标签和分类</span>
+                        <span class="card-title">我们为何要写作</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            如何将自己知识地图映射到博客的分类和标签，使得博客文章的管理更加有效呢
+                            给自己一个坚持输出的理由
                         
                     </div>
                     <div class="publish-info">
@@ -1039,8 +1046,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%89%8B%E6%AE%B5%E6%96%B9%E6%B3%95/" class="post-category">
-                                    手段方法
+                            <a href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="post-category">
+                                    杂七杂八
                                 </a>
                             
                             
@@ -1050,12 +1057,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB/">
-                        <span class="chip bg-color">文章分类</span>
+                    <a href="/tags/%E5%86%99%E4%BD%9C/">
+                        <span class="chip bg-color">写作</span>
                     </a>
                     
-                    <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/">
-                        <span class="chip bg-color">知识管理</span>
+                    <a href="/tags/%E9%B8%A1%E8%A1%80/">
+                        <span class="chip bg-color">鸡血</span>
                     </a>
                     
                 </div>

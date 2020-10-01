@@ -6,7 +6,7 @@
   <link href="http://www.chafanzhai.com/atom.xml" rel="self"/>
   
   <link href="http://www.chafanzhai.com/"/>
-  <updated>2020-05-17T09:53:06.554Z</updated>
+  <updated>2020-10-01T15:16:16.759Z</updated>
   <id>http://www.chafanzhai.com/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>博客运维记录</title>
-    <link href="http://www.chafanzhai.com/2020/06/10/bo-ke-yun-wei-ji-lu/"/>
-    <id>http://www.chafanzhai.com/2020/06/10/bo-ke-yun-wei-ji-lu/</id>
-    <published>2020-06-10T14:12:21.343Z</published>
-    <updated>2020-05-17T09:53:06.554Z</updated>
+    <link href="http://www.chafanzhai.com/2020/10/01/bo-ke-yun-wei-ji-lu/"/>
+    <id>http://www.chafanzhai.com/2020/10/01/bo-ke-yun-wei-ji-lu/</id>
+    <published>2020-10-01T15:16:16.759Z</published>
+    <updated>2020-10-01T15:16:16.759Z</updated>
     
     
       
@@ -47,11 +47,57 @@
   </entry>
   
   <entry>
+    <title>测试hexo同步</title>
+    <link href="http://www.chafanzhai.com/2020/10/01/yuque/ce-shi-hexo-tong-bu/"/>
+    <id>http://www.chafanzhai.com/2020/10/01/yuque/ce-shi-hexo-tong-bu/</id>
+    <published>2020-10-01T14:58:35.000Z</published>
+    <updated>2020-10-01T15:16:56.809Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;测试 hexo 同步，仅作测试解决 dada dasd&lt;/p&gt;
+&lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>解决DDNS解析问题，实现公网访问群晖</title>
+    <link href="http://www.chafanzhai.com/2020/06/18/yuque/jie-jue-ddns-jie-xi-wen-ti-shi-xian-gong-wang-fang-wen-qun-hui/"/>
+    <id>http://www.chafanzhai.com/2020/06/18/yuque/jie-jue-ddns-jie-xi-wen-ti-shi-xian-gong-wang-fang-wen-qun-hui/</id>
+    <published>2020-06-18T08:59:55.000Z</published>
+    <updated>2020-10-01T15:16:56.905Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;本文内容仅适用于群晖，若应用在其他地方，请自行修改。&lt;br&gt;本文是基于阿里云的域名解析实现的，使用群晖的</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>我们为何要写作</title>
     <link href="http://www.chafanzhai.com/2019/10/19/wo-men-wei-he-yao-xie-zuo/"/>
     <id>http://www.chafanzhai.com/2019/10/19/wo-men-wei-he-yao-xie-zuo/</id>
     <published>2019-10-19T12:12:09.000Z</published>
-    <updated>2020-05-17T09:53:06.556Z</updated>
+    <updated>2020-10-01T15:16:16.759Z</updated>
     
     
       
@@ -79,7 +125,7 @@
     <link href="http://www.chafanzhai.com/2019/10/19/ru-he-gui-hua-bo-ke-de-biao-qian-he-fen-lei/"/>
     <id>http://www.chafanzhai.com/2019/10/19/ru-he-gui-hua-bo-ke-de-biao-qian-he-fen-lei/</id>
     <published>2019-10-19T12:09:07.000Z</published>
-    <updated>2020-05-17T09:53:06.555Z</updated>
+    <updated>2020-10-01T15:16:16.759Z</updated>
     
     
       
@@ -107,7 +153,7 @@
     <link href="http://www.chafanzhai.com/2019/10/16/li-yong-frp-shi-xian-nei-wang-chuan-tou-bing-wen-qun-hui-nas/"/>
     <id>http://www.chafanzhai.com/2019/10/16/li-yong-frp-shi-xian-nei-wang-chuan-tou-bing-wen-qun-hui-nas/</id>
     <published>2019-10-16T00:37:32.000Z</published>
-    <updated>2020-05-17T09:53:06.554Z</updated>
+    <updated>2020-10-01T15:16:16.759Z</updated>
     
     
       
@@ -140,7 +186,7 @@
     <link href="http://www.chafanzhai.com/2019/10/16/ge-ren-yuan-qi-jian-feng-zhuang-ku-she-ji-gui-fan/"/>
     <id>http://www.chafanzhai.com/2019/10/16/ge-ren-yuan-qi-jian-feng-zhuang-ku-she-ji-gui-fan/</id>
     <published>2019-10-16T00:25:52.000Z</published>
-    <updated>2020-05-17T09:53:06.553Z</updated>
+    <updated>2020-10-01T15:16:16.759Z</updated>
     
     
       
@@ -168,7 +214,7 @@
     <link href="http://www.chafanzhai.com/2019/10/16/altium-designer-zai-hui-zhi-pcblayout-shi-ge-ceng-de-yong-tu/"/>
     <id>http://www.chafanzhai.com/2019/10/16/altium-designer-zai-hui-zhi-pcblayout-shi-ge-ceng-de-yong-tu/</id>
     <published>2019-10-16T00:21:02.000Z</published>
-    <updated>2020-05-17T09:53:06.551Z</updated>
+    <updated>2020-10-01T15:16:16.759Z</updated>
     
     
       
@@ -195,7 +241,7 @@
     <link href="http://www.chafanzhai.com/2019/10/01/git-chang-yong-ming-ling-ji-cao-zuo-bi-ji/"/>
     <id>http://www.chafanzhai.com/2019/10/01/git-chang-yong-ming-ling-ji-cao-zuo-bi-ji/</id>
     <published>2019-10-01T10:25:02.000Z</published>
-    <updated>2020-05-17T09:53:06.552Z</updated>
+    <updated>2020-10-01T15:16:16.759Z</updated>
     
     
       
